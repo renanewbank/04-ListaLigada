@@ -128,6 +128,11 @@ void inserirElemento()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (posicaoElemento (novo->valor) != NULL) {
+		cout << "Elemento ja existente. Insira outro elemento.\n";
+		return;
+	}
+
 	if (primeiro == NULL)
 	{
 		primeiro = novo;
@@ -150,7 +155,17 @@ void excluirElemento()
 
 void buscarElemento()
 {
-	
+	int buscador = 0;
+	cout << "Digite um elemento: ";
+	cin >> buscador;
+
+	NO* busc = posicaoElemento(buscador);
+
+	if (busc != NULL) {
+		cout << "Elemento encontrado.\n";
+		return;
+	}
+	cout << "Elemento nao encontrado.\n";
 }
 
 
